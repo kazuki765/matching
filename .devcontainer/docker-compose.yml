@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  # devcontainerのイメージは、ubuntuのいろいろ入ってるやつ。
+  devcontainer:
+    env_file: 
+      - .env
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ../:/workspaces/
+    tty: true
+    depends_on:
+      - postgresql
+    networks:
+      - postgres
+
+  postgresql:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - ../.docker/postgresql:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_PORT}:5432
+    networks:
+      - postgres
+
+volumes:
+  postgres-data:
+
+networks:
+  postgres:
