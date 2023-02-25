@@ -1,0 +1,19 @@
+{
+  "name": "matching",
+  "version": "1.0.0",
+  "description": "matching app",
+  "scripts": {},
+  "author": "kujira765",
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": "npm run lint"
+  }
+}
