@@ -12,7 +12,7 @@ back-watch:
 	@cd ./backend && npm run dev
 
 back-i:
-	@cd ./backend && npm i 
+	@cd ./backend && npm i
 
 migrate:
 	@cd ./backend && npm run prisma:migrate

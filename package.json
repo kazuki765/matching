@@ -1,19 +1,13 @@
 {
-  "name": "matching",
+  "name": "matching app",
   "version": "1.0.0",
-  "description": "matching app",
-  "scripts": {},
+  "description": "matching platformを自分なりに作ってみる（web）",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
   "author": "kujira765",
   "devDependencies": {
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": "cd ./backend && npm run lint && cd ../frontend && npm run lint"
+    "husky": "^8.0.3"
   }
 }
